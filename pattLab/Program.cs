@@ -1,4 +1,7 @@
-﻿using System;
+﻿using pattLab.Decorator;
+using pattLab.Iterator;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +11,7 @@ namespace pattLab
 {
     class Program
     {
+        //делегирование
        public void test1()
         {
             //создаю две системы анализа
@@ -31,6 +35,8 @@ namespace pattLab
             Console.WriteLine("\nSecond Analysis System: ");
             secondSystem.getAllMeasurements();
         }
+
+        //прокси
         public void test2()
         {
             WorkingAnalysisSystem newSystem = new WorkingAnalysisSystem();
@@ -46,13 +52,71 @@ namespace pattLab
             Console.WriteLine("\nProxy Analysis System: ");
             proxySystem.getAllMeasurements();
         }
+
+        //адаптер
+        public void test3()
+        {
+            //создаю систему анализа
+            WorkingAnalysisSystem firstSystem = new WorkingAnalysisSystem();
+
+            //добавляю дозиметр, термометр и анализатор пробы
+            firstSystem.addDevice(new Dosimeter());
+            firstSystem.addDevice(new Thermometer());
+            firstSystem.addDevice(new Adapter(new SampleAnalysisSystem()));
+
+            //запрашиваю у системы показания измерений
+            Console.WriteLine("Опрос системы: ");
+
+            firstSystem.getAllMeasurements();
+        }
+
+        //декоратор
+        public void test4()
+        {
+            //создаю систему анализа
+            WorkingAnalysisSystem firstSystem = new WorkingAnalysisSystem();
+            //добавляю дозиметр, термометр и барометр
+            firstSystem.addDevice(new Dosimeter());
+            firstSystem.addDevice(new Thermometer());
+            firstSystem.addDevice(new Barometer());
+
+            //создаю расширенные версии
+            AnalysisSystemWithAnalyse syst1 = new AnalysisSystemWithAnalyse(firstSystem);
+            AnalysisSystemWithReport syst2 = new AnalysisSystemWithReport(firstSystem);
+
+            Console.WriteLine("\nДополнительный функционал:");
+            Console.WriteLine("___________________________________________");
+            syst1.analyseMeasurements();
+            Console.WriteLine("___________________________________________");
+            syst2.generateReport();
+            Console.WriteLine("___________________________________________");
+        }
+
+        //итератор
+        public void test6()
+        {
+            //создаю систему анализа
+            WorkingAnalysisSystem firstSystem = new WorkingAnalysisSystem();
+            //добавляю дозиметр, термометр и барометр
+            firstSystem.addDevice(new Dosimeter());
+            firstSystem.addDevice(new Thermometer());
+            firstSystem.addDevice(new Barometer());
+
+            Iterator<MeasuringDevice> it = firstSystem.createIterator();
+            Console.WriteLine("Считываю параметры измерительных устройств системы с помощью итератора: ");
+            do {
+                MeasuringDevice device = it.getCurrent();
+                device.getMeasurement();
+                it.getNext();
+            } while (it.hasNext());
+        }
         static void Main(string[] args)
         {
            
            
             Program test = new Program();
-            test.test1();
-            test.test2();
+            test.test4();
+         //   test.test2();
 
         }
     }

@@ -12,7 +12,8 @@ namespace pattLab
 
 
         public void addDevice(MeasuringDevice newDevice) { Prox.addDevice(newDevice); }
-        public void getAllMeasurements() { Prox.getAllMeasurements(); }
+        public List<string> getAllMeasurements() { Prox.getAllMeasurements();
+            return new List<string>(); }
         public ProxyAnalysisSystem(WorkingAnalysisSystem newSystem) { Prox = newSystem; }
     }
 }

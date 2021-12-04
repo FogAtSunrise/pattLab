@@ -8,6 +8,7 @@ namespace pattLab
 {
     interface AnalysisSystem
     {
-        void getAllMeasurements();
+        List<string> getAllMeasurements();
+        
     }
 }

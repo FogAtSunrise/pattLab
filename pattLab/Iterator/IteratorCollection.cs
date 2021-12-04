@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace pattLab
+namespace pattLab.Iterator
 {
-    interface MeasuringDevice
+    interface IteratorCollection<T>
     {
-        void getMeasurement();
-        string getName();
+        Iterator<T> createIterator();
     }
 }
