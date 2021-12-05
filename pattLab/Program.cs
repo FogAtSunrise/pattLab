@@ -1,4 +1,5 @@
-﻿using pattLab.Decorator;
+﻿using pattLab.Composite;
+using pattLab.Decorator;
 using pattLab.Iterator;
 
 using System;
@@ -91,7 +92,30 @@ namespace pattLab
             syst2.generateReport();
             Console.WriteLine("___________________________________________");
         }
+        //Composite
+        public void test5()
+        {
+            //Создаю отдельного пользователя и группу
+            User oneUser = new CertainUser("ira", "hjr", 2);
+            User groupUsers = new CompositeUser();
+            User groupDop = new CompositeUser();
 
+            //заполняю дополнительную группу
+            groupDop.addUser(new CertainUser("l", "1", 4));
+            groupDop.addUser(new CertainUser("hjh", "yui", 3));
+
+            //заполняю основную группу (дополнительная становится ее подгруппой)
+            groupUsers.addUser(new CertainUser("lia", "123", 3));
+            groupUsers.addUser(oneUser);
+            groupUsers.addUser(groupDop);
+            groupUsers.addUser(new CertainUser("kkk", "o23", 1));
+
+            Console.WriteLine("Отдельный пользователь");
+            oneUser.operation();
+            Console.Write("\n\nГруппа пользователей");
+            groupUsers.operation();
+            Console.WriteLine("\n___________________________________________"); 
+        }
         //итератор
         public void test6()
         {
@@ -115,8 +139,12 @@ namespace pattLab
            
            
             Program test = new Program();
+            test.test1();
+            test.test2();
+            test.test3();
             test.test4();
-         //   test.test2();
+            test.test5();
+            test.test6();
 
         }
     }

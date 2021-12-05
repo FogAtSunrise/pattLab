@@ -52,6 +52,9 @@
     <Compile Include="Adapter\Adapter.cs" />
     <Compile Include="AnalysisSystem.cs" />
     <Compile Include="Barometer.cs" />
+    <Compile Include="Composite\CertainUser.cs" />
+    <Compile Include="Composite\CompositeUser.cs" />
+    <Compile Include="Composite\User.cs" />
     <Compile Include="Decorator\AnalysisSystemWithAnalyse.cs" />
     <Compile Include="Decorator\AnalysisSystemWithReport.cs" />
     <Compile Include="Decorator\DecoratorAnalysisSystem.cs" />
