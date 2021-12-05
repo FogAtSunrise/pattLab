@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace pattLab
 {
+    //система анализа пробы
     class SampleAnalysisSystem
     {
-        //список параметров пробы, полученных в результате анализа
+        
         private List<int> listIndicators;
 
         private void prepareSample() { }

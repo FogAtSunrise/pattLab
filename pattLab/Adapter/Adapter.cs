@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace pattLab
 {
+    //адаптер для подведения системы анализа пробы под интерфейс измерительного прибора
     class Adapter : MeasuringDevice
     {
         private string name = "SampleAnalysisSystem";

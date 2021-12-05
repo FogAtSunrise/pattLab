@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace pattLab.Composite
 {
+    //группа пользователей
     class CompositeUser : User
     {
         List<User> listUsers;

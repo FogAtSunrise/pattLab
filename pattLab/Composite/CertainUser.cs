@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace pattLab.Composite
 {
+    //конкретный пользователь
     class CertainUser : User
     {
         private string login;
