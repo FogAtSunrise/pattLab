@@ -50,26 +50,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapter\Adapter.cs" />
-    <Compile Include="AnalysisSystem.cs" />
-    <Compile Include="Barometer.cs" />
+    <Compile Include="AnalysisSystem\AnalysisSystem.cs" />
+    <Compile Include="MeasuringDevice\Barometer.cs" />
     <Compile Include="Composite\CertainUser.cs" />
     <Compile Include="Composite\CompositeUser.cs" />
     <Compile Include="Composite\User.cs" />
     <Compile Include="Decorator\AnalysisSystemWithAnalyse.cs" />
     <Compile Include="Decorator\AnalysisSystemWithReport.cs" />
     <Compile Include="Decorator\DecoratorAnalysisSystem.cs" />
-    <Compile Include="Dosimeter.cs" />
+    <Compile Include="MeasuringDevice\Dosimeter.cs" />
     <Compile Include="Iterator\Iterator.cs" />
     <Compile Include="Iterator\IteratorDevice.cs" />
     <Compile Include="Iterator\IteratorCollection.cs" />
-    <Compile Include="MeasuringDevice.cs" />
+    <Compile Include="MeasuringDevice\MeasuringDevice.cs" />
     <Compile Include="MonitoringSystem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProxyAnalysisSystem.cs" />
+    <Compile Include="AnalysisSystem\ProxyAnalysisSystem.cs" />
     <Compile Include="Adapter\SampleAnalysisSystem.cs" />
-    <Compile Include="Thermometer.cs" />
-    <Compile Include="WorkingAnalysisSystem.cs" />
+    <Compile Include="MeasuringDevice\Thermometer.cs" />
+    <Compile Include="AnalysisSystem\WorkingAnalysisSystem.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -88,9 +88,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
