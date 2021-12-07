@@ -51,6 +51,11 @@
   <ItemGroup>
     <Compile Include="Adapter\Adapter.cs" />
     <Compile Include="AnalysisSystem\AnalysisSystem.cs" />
+    <Compile Include="FactoryMethod\AirObject.cs" />
+    <Compile Include="FactoryMethod\AirSampleAnalysis.cs" />
+    <Compile Include="FactoryMethod\Object.cs" />
+    <Compile Include="FactoryMethod\WaterObject.cs" />
+    <Compile Include="FactoryMethod\WaterSampleAnalysis.cs" />
     <Compile Include="MeasuringDevice\Barometer.cs" />
     <Compile Include="Composite\CertainUser.cs" />
     <Compile Include="Composite\CompositeUser.cs" />

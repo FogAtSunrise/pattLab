@@ -1,5 +1,6 @@
 ﻿using pattLab.Composite;
 using pattLab.Decorator;
+using pattLab.FactoryMethod;
 using pattLab.Iterator;
 
 using System;
@@ -134,18 +135,39 @@ namespace pattLab
                 it.getNext();
             } while (it.hasNext());
         }
+
+        public void test7()
+        {
+            //конкретные фабричные методы
+            ObjectMet FabMetA = new AirObject();
+            ObjectMet FabMetW = new WaterObject();
+
+            //создаю два газаанализатора с номерами 1 и 2
+            SampleAnalysisSystem air1 = FabMetA.createSampleAnalysisSystem(1);
+            SampleAnalysisSystem air2 = FabMetA.createSampleAnalysisSystem(2);
+
+            //создаю водоанализатор с номером 234
+            SampleAnalysisSystem wat234 = FabMetW.createSampleAnalysisSystem(234);
+
+            Console.WriteLine("\nРезультаты:\n");
+            //вывожу результаты для созданных анализаторов
+            air1.getResults();
+            air2.getResults();
+            wat234.getResults();
+        }
         static void Main(string[] args)
         {
            
            
             Program test = new Program();
-            test.test1();
-            test.test2();
-            test.test3();
-            test.test4();
-            test.test5();
-            test.test6();
-
+              test.test1();
+              test.test2();
+              test.test3();
+              test.test4();
+              test.test5();
+              test.test6();
+            
+            test.test7();
         }
     }
 }
