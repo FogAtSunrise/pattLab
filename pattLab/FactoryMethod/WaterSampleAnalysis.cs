@@ -12,5 +12,9 @@ namespace pattLab.FactoryMethod
         {
             Console.WriteLine("Создан анализатор воды");
         }
+        public override SampleAnalysisSystem createAnalisSystem()
+        {
+            return new AirSampleAnalysis(10);
+        }
     }
 }

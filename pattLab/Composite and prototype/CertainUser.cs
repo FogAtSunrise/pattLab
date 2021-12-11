@@ -12,6 +12,13 @@ namespace pattLab.Composite
         private string login;
         private string password;
         private int privilegeLevel;
+
+        public void setLog(string log) { login = log; }
+        public string getLog() { return login; }
+
+        public void setPas(string pas) { password = pas; }
+        public string getPas() { return password; }
+
         public CertainUser(string l, string p, int pr)
         {
             login=l;
@@ -21,6 +28,7 @@ namespace pattLab.Composite
         public override void operation () {
             Console.Write("login: " + login+ "; password: " + password+ "; privilege level: " + privilegeLevel);
         }
-   
+
+        public override User clone() { return new CertainUser(login, password, privilegeLevel); }
     }
 }

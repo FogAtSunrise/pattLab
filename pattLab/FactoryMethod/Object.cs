@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace pattLab.FactoryMethod
 {
-    class ObjectMet
+    abstract class ObjectMet
     {
-        public virtual SampleAnalysisSystem createSampleAnalysisSystem(int n) { return new SampleAnalysisSystem(); }
+        public abstract SampleAnalysisSystem createSampleAnalysisSystem(int n);
 
     }
 }

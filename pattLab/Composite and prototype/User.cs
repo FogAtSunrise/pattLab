@@ -12,5 +12,7 @@ namespace pattLab.Composite
         public virtual void delUser(User a) { }
         public virtual List<User> getCompositeUsers() { return new List<User>(); }
         public virtual void operation() { }
+        public virtual User clone() { return new User(); }
+
     }
 }

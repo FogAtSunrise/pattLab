@@ -1,4 +1,5 @@
-﻿using pattLab.Composite;
+﻿using pattLab.AbstractFactory;
+using pattLab.Composite;
 using pattLab.Decorator;
 using pattLab.FactoryMethod;
 using pattLab.Iterator;
@@ -64,7 +65,11 @@ namespace pattLab
             //добавляю дозиметр, термометр и анализатор пробы
             firstSystem.addDevice(new Dosimeter());
             firstSystem.addDevice(new Thermometer());
-            firstSystem.addDevice(new Adapter(new SampleAnalysisSystem()));
+
+            //до внедрения фабричного метода
+           // firstSystem.addDevice(new Adapter(new SampleAnalysisSystem())); 
+           //после
+            firstSystem.addDevice(new Adapter((new AirObject()).createSampleAnalysisSystem(6)));
 
             //запрашиваю у системы показания измерений
             Console.WriteLine("Опрос системы: ");
@@ -155,19 +160,104 @@ namespace pattLab
             air2.getResults();
             wat234.getResults();
         }
+
+        public void test8()
+        {
+            //конкретные системы анализа или точнее их фабрики
+            AirAuto FabA = new AirAuto();
+            WaterNotAuto FabW1 = new WaterNotAuto();
+            WaterAuto FabW2 = new WaterAuto();
+
+            //создаю автоматический анализатор воздуха 
+            SampleAnalysisSystem air1 = FabA.createAnalisSystem();
+
+            //создаю не автоматический анализатор воды  
+            SampleAnalysisSystem wat1 = FabW1.createAnalisSystem();
+
+            //создаю автоматический анализатор воды
+            SampleAnalysisSystem wat2 = FabW2.createAnalisSystem();
+
+            Console.WriteLine("\nРезультаты:\n");
+            //вывожу результаты для созданных анализаторов
+            air1.getResult();
+            wat1.getResult();
+            wat2.getResult();
+        }
+
+        public void test9()
+        {
+            //Создаю два экземпляра системы мониторинга
+            MonitoringSystem sys1 = MonitoringSystem.getInstance("МАИС");
+            MonitoringSystem sys2 = MonitoringSystem.getInstance("Галлифрей");
+
+            Console.WriteLine("\nРезультаты:\n");
+
+            //вывожу имена 
+            sys1.getData();
+            sys2.getData();
+        
+        }
+
+        public void test10()
+        {
+            //Создаю пользователя и клонирую его в нового
+            CertainUser oneUser = new CertainUser("ira", "hjr", 2);
+            User twoUser = oneUser.clone();
+
+            Console.WriteLine("Результат с пользователем:\n");
+            Console.Write("Первый пользователь: ");
+            oneUser.operation();
+
+            Console.Write("\nВторой пользователь (клон):");
+            twoUser.operation();
+
+            //меняю логин первого пользователя
+            oneUser.setLog("NEWname");
+
+            Console.WriteLine("\n\nРезультат с пользователем после замены логина первого:\n");
+            Console.Write("Первый пользователь: ");
+            oneUser.operation();
+
+            Console.Write("\nВторой пользователь (клон):");
+            twoUser.operation();
+
+            //создаю группу
+            CompositeUser groupUsers = new CompositeUser();
+ 
+            //заполняю группу 
+            groupUsers.addUser(new CertainUser("LILI", "123", 3));
+            groupUsers.addUser(new CompositeUser(new List<User>() { new CertainUser("IRA", "yui", 3) , twoUser}));
+            groupUsers.addUser(new CertainUser("KIM", "o23", 1));
+
+            //клонирую группу
+            User groupClone = groupUsers.clone();
+
+            Console.WriteLine("\n___________________________________________");
+            Console.WriteLine("\n\nРезультат с группой:");
+            Console.Write("\nГруппа пользователей");
+            groupUsers.operation();
+            Console.WriteLine("\n___________________________________________");
+
+            Console.Write("Клон группы пользователей");
+            groupClone.operation();
+            Console.WriteLine("\n___________________________________________");
+        }
         static void Main(string[] args)
         {
            
            
             Program test = new Program();
-              test.test1();
-              test.test2();
-              test.test3();
-              test.test4();
-              test.test5();
-              test.test6();
+             test.test1();
+             test.test2();
+             test.test3();
+             test.test4();
+             test.test5();
+             test.test6();
+             test.test7();
+             test.test8();
+             test.test9();
             
-            test.test7();
+            test.test10();
         }
     }
 }

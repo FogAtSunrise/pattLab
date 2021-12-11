@@ -13,6 +13,10 @@ namespace pattLab.Composite
 
         public CompositeUser()
         { listUsers = new List<User>(); }
+
+        public CompositeUser(List<User> list)
+        { listUsers = list; }
+
         public override void addUser(User a) { listUsers.Add(a); }
         public override void delUser(User a) { listUsers.Remove(a); }
         public override List<User> getCompositeUsers() { return listUsers; }
@@ -25,5 +29,7 @@ namespace pattLab.Composite
             }
             Console.WriteLine();
         }
+
+        public override User clone() { return new CompositeUser(listUsers); }
     }
 }

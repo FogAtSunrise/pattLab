@@ -49,6 +49,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractFactory\AbstractCollectType.cs" />
+    <Compile Include="AbstractFactory\AbstractSampleType.cs" />
+    <Compile Include="AbstractFactory\AirAuto.cs" />
+    <Compile Include="AbstractFactory\AirSampleAnalysis.cs" />
+    <Compile Include="AbstractFactory\AutoCollection.cs" />
+    <Compile Include="AbstractFactory\NotAutoCollection.cs" />
+    <Compile Include="AbstractFactory\WaterAuto.cs" />
+    <Compile Include="AbstractFactory\WaterNotAuto.cs" />
+    <Compile Include="AbstractFactory\WaterSampleAnalysis.cs" />
     <Compile Include="Adapter\Adapter.cs" />
     <Compile Include="AnalysisSystem\AnalysisSystem.cs" />
     <Compile Include="FactoryMethod\AirObject.cs" />
@@ -57,9 +66,9 @@
     <Compile Include="FactoryMethod\WaterObject.cs" />
     <Compile Include="FactoryMethod\WaterSampleAnalysis.cs" />
     <Compile Include="MeasuringDevice\Barometer.cs" />
-    <Compile Include="Composite\CertainUser.cs" />
-    <Compile Include="Composite\CompositeUser.cs" />
-    <Compile Include="Composite\User.cs" />
+    <Compile Include="Composite and prototype\CertainUser.cs" />
+    <Compile Include="Composite and prototype\CompositeUser.cs" />
+    <Compile Include="Composite and prototype\User.cs" />
     <Compile Include="Decorator\AnalysisSystemWithAnalyse.cs" />
     <Compile Include="Decorator\AnalysisSystemWithReport.cs" />
     <Compile Include="Decorator\DecoratorAnalysisSystem.cs" />
