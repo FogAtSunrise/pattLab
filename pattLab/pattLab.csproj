@@ -84,6 +84,10 @@
     <Compile Include="Adapter\SampleAnalysisSystem.cs" />
     <Compile Include="MeasuringDevice\Thermometer.cs" />
     <Compile Include="AnalysisSystem\WorkingAnalysisSystem.cs" />
+    <Compile Include="StatePat\ProcessingState.cs" />
+    <Compile Include="StatePat\State.cs" />
+    <Compile Include="StatePat\SurveyState.cs" />
+    <Compile Include="StatePat\WaitState.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

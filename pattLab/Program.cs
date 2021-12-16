@@ -3,7 +3,7 @@ using pattLab.Composite;
 using pattLab.Decorator;
 using pattLab.FactoryMethod;
 using pattLab.Iterator;
-
+using pattLab.StatePat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -242,12 +242,27 @@ namespace pattLab
             groupClone.operation();
             Console.WriteLine("\n___________________________________________");
         }
+
+        public void test11()
+        {
+            //Создаю систему мониторинга
+            MonitoringSystem sys = MonitoringSystem.getInstance("Галлифрей");
+
+            //Задаю начальное состояние
+            sys.setState(new WaitState());
+
+            //вывожу состояния 
+            for (int i = 0; i < 15; i++)
+            {
+                sys.run();
+            }
+        }
         static void Main(string[] args)
         {
            
            
             Program test = new Program();
-             test.test1();
+            /* test.test1();
              test.test2();
              test.test3();
              test.test4();
@@ -256,8 +271,9 @@ namespace pattLab
              test.test7();
              test.test8();
              test.test9();
-            
-            test.test10();
+            test.test10();*/
+
+            test.test11();
         }
     }
 }

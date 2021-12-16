@@ -1,4 +1,5 @@
 ﻿using pattLab.Composite;
+using pattLab.StatePat;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,13 @@ namespace pattLab
 {
     class MonitoringSystem
     {
-       private List<AnalysisSystem> listAnalysisSystem;
+        private State curState;
+
+        public void setState(State s) { curState = s; }
+
+        public void run() { curState.make(instance); }
+
+        private List<AnalysisSystem> listAnalysisSystem;
         private static string name="name";
         private static MonitoringSystem instance = null;
         private MonitoringSystem() { Console.WriteLine("Создана центральная система мониторинга"); }
