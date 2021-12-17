@@ -3,6 +3,7 @@ using pattLab.Composite;
 using pattLab.Decorator;
 using pattLab.FactoryMethod;
 using pattLab.Iterator;
+using pattLab.Memento;
 using pattLab.ObserverPat;
 using pattLab.StatePat;
 using System;
@@ -281,12 +282,55 @@ namespace pattLab
                 comis.getSubjectState();  
             }
         }
+
+
+        public void test13()
+        {
+            //создаю отчет
+            Report doc = new Report("Отчет 2012");
+
+            //ввожу исходные данные
+            doc.setType(1);
+            doc.setData("data-1");
+
+            Console.WriteLine("\n________________Первая версия________________________");
+            doc.printRep();
+
+            //сохраняю состояние
+            doc.saveState();
+
+            //меняю данные
+            doc.setType(2);
+            doc.setData("DATA-2");
+
+            Console.WriteLine("\n________________Вторая версия________________________");
+            doc.printRep();
+
+            //сохраняю состояние
+            doc.saveState();
+
+            //меняю данные
+            doc.setType(3);
+            doc.setData("DaTa - 3");
+
+            Console.WriteLine("\n________________Третья версия________________________");
+            doc.printRep();
+
+            Console.WriteLine("\nОТКАТЫВАЮ И ВЫВОЖУ");
+            for (int i = 0; i < 4; i++)
+            {
+                Console.WriteLine("________________");
+                doc.restoreState();
+                doc.printRep();
+            }
+        }
+
         static void Main(string[] args)
         {
            
            
             Program test = new Program();
-            /* test.test1();
+             test.test1();
              test.test2();
              test.test3();
              test.test4();
@@ -296,9 +340,11 @@ namespace pattLab
              test.test8();
              test.test9();
             test.test10();
-            test.test11();*/
-
+            test.test11();
             test.test12();
+            
+
+            test.test13();
         }
     }
 }

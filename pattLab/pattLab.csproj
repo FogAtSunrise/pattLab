@@ -77,6 +77,9 @@
     <Compile Include="Iterator\IteratorDevice.cs" />
     <Compile Include="Iterator\IteratorCollection.cs" />
     <Compile Include="MeasuringDevice\MeasuringDevice.cs" />
+    <Compile Include="Memento\MementoHistory.cs" />
+    <Compile Include="Memento\MementoReport.cs" />
+    <Compile Include="Memento\Report.cs" />
     <Compile Include="MonitoringSystem.cs" />
     <Compile Include="ObserverPat\CommissionOfMNRandE.cs" />
     <Compile Include="ObserverPat\Observer.cs" />
