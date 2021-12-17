@@ -11,7 +11,7 @@ namespace pattLab.StatePat
         int time;
        public WaitState()
         { time = 0;
-            Console.WriteLine("");
+            Console.WriteLine("\nОЖИДАНИЕ: начало");
         }
         public void make(MonitoringSystem sys)
         {
@@ -25,5 +25,7 @@ namespace pattLab.StatePat
                 sys.setState(new SurveyState());
             }
         }
+
+        public string getName() { return "ожидание"; }
     }
 }

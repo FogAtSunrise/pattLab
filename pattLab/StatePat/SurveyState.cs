@@ -29,6 +29,6 @@ namespace pattLab.StatePat
         }
 
 
-
+        public string getName() { return "опрос"; }
     }
 }

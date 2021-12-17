@@ -3,6 +3,7 @@ using pattLab.Composite;
 using pattLab.Decorator;
 using pattLab.FactoryMethod;
 using pattLab.Iterator;
+using pattLab.ObserverPat;
 using pattLab.StatePat;
 using System;
 using System.Collections.Generic;
@@ -257,6 +258,29 @@ namespace pattLab
                 sys.run();
             }
         }
+
+        public void test12()
+        {
+            //Создаю систему мониторинга и наблюдателя
+            MonitoringSystem sys = MonitoringSystem.getInstance("Галлифрей");
+            CommissionOfMNRandE comis = new CommissionOfMNRandE();
+
+            //подпишем наблюдателя на мониторинг
+            sys.attach(comis);
+
+            Console.Write("\n_____________Задаю начальное состояние_______________");
+            sys.setState(new WaitState());
+
+            Console.WriteLine("\n________________Цикл по шагам________________________");
+            //на каждом шаге вывожу данные о наблюдаемом объекте с точки зрения наблюдателя
+            for (int i = 0; i < 7; i++)
+            {
+                //прохожу работу состояний пошагово
+                sys.run();
+                //данные о наблюдаемом объекте 
+                comis.getSubjectState();  
+            }
+        }
         static void Main(string[] args)
         {
            
@@ -271,9 +295,10 @@ namespace pattLab
              test.test7();
              test.test8();
              test.test9();
-            test.test10();*/
+            test.test10();
+            test.test11();*/
 
-            test.test11();
+            test.test12();
         }
     }
 }

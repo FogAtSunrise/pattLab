@@ -12,7 +12,7 @@ namespace pattLab.StatePat
         public ProcessingState()
         {
             time = 0;
-            Console.WriteLine("");
+            Console.WriteLine("\nОБРАБОТКА ДАННЫХ: начало");
         }
         public void make(MonitoringSystem sys)
         {
@@ -27,5 +27,7 @@ namespace pattLab.StatePat
                 sys.setState(new WaitState());
             }
         }
+
+        public string getName() { return "обработка данных"; }
     }
 }

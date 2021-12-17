@@ -1,4 +1,5 @@
 ﻿using pattLab.Composite;
+using pattLab.ObserverPat;
 using pattLab.StatePat;
 using System;
 using System.Collections.Generic;
@@ -8,13 +9,23 @@ using System.Threading.Tasks;
 
 namespace pattLab
 {
-    class MonitoringSystem
+    class MonitoringSystem : Subject
     {
         private State curState;
 
-        public void setState(State s) { curState = s; }
+        //изменить статус системы
+        public void setState(State s) { 
+            curState = s;
+            notify();
+        }
 
         public void run() { curState.make(instance); }
+
+        //оотправить оповещение наблюдателю
+        public override void notify() {
+            if(observer!=null)
+            observer.update(curState);
+        }
 
         private List<AnalysisSystem> listAnalysisSystem;
         private static string name="name";

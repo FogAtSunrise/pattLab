@@ -8,6 +8,9 @@ namespace pattLab.StatePat
 {
     interface State
     {
+       
         void make(MonitoringSystem sys);
+        string getName();
+       
     }
 }

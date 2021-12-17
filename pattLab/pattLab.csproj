@@ -78,6 +78,9 @@
     <Compile Include="Iterator\IteratorCollection.cs" />
     <Compile Include="MeasuringDevice\MeasuringDevice.cs" />
     <Compile Include="MonitoringSystem.cs" />
+    <Compile Include="ObserverPat\CommissionOfMNRandE.cs" />
+    <Compile Include="ObserverPat\Observer.cs" />
+    <Compile Include="ObserverPat\Subject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AnalysisSystem\ProxyAnalysisSystem.cs" />
