@@ -7,6 +7,7 @@ using pattLab.Iterator;
 using pattLab.Memento;
 using pattLab.ObserverPat;
 using pattLab.StatePat;
+using pattLab.VisitorPatt;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -370,26 +371,58 @@ namespace pattLab
             
         }
 
+        public void test15()
+        {
+            //создаю список измерительных устройств
+            List<MeasuringDevice> list = new List<MeasuringDevice> {new Thermometer(),
+                                                                    new Barometer(),
+                                                                    new Dosimeter()};
+            //создаю посетителей
+            TVisitor t = new TVisitor();
+            BVisitor b = new BVisitor();
+            DVisitor d = new DVisitor();
+
+            //опрашиваю измерительные устройства
+
+            Console.WriteLine("\nОпрос устройств без Visitor");
+            foreach (MeasuringDevice dev in list)
+            {
+                Console.WriteLine("_____________________");
+                dev.getMeasurement();
+            }
+            Console.WriteLine("\n");
+            Console.WriteLine("\nОпрос устройств");
+            foreach (MeasuringDevice dev in list)
+            {
+                Console.WriteLine("_____________________");
+                dev.getMeasurement();
+                dev.accept(t);
+                dev.accept(b);
+                dev.accept(d);
+            }
+        }
+
         static void Main(string[] args)
         {
            
            
             Program test = new Program();
-           /*  test.test1();
-             test.test2();
-             test.test3();
-             test.test4();
-             test.test5();
-             test.test6();
-             test.test7();
-             test.test8();
-             test.test9();
-            test.test10();
-            test.test11();
-            test.test12();
-           test.test13();*/
+            /*  test.test1();
+              test.test2();
+              test.test3();
+              test.test4();
+              test.test5();
+              test.test6();
+              test.test7();
+              test.test8();
+              test.test9();
+             test.test10();
+             test.test11();
+             test.test12();
+            test.test13();
+             test.test14();*/
 
-            test.test14();
+            test.test15();
         }
     }
 }

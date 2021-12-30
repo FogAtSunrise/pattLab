@@ -97,6 +97,10 @@
     <Compile Include="StatePat\State.cs" />
     <Compile Include="StatePat\SurveyState.cs" />
     <Compile Include="StatePat\WaitState.cs" />
+    <Compile Include="VisitorPatt\BVisitor.cs" />
+    <Compile Include="VisitorPatt\DVisitor.cs" />
+    <Compile Include="VisitorPatt\TVisitor.cs" />
+    <Compile Include="VisitorPatt\Visitor.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

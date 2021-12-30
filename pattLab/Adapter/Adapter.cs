@@ -1,4 +1,5 @@
-﻿using System;
+﻿using pattLab.VisitorPatt;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace pattLab
     //адаптер для подведения системы анализа пробы под интерфейс измерительного прибора
     class Adapter : MeasuringDevice
     {
+
         private string name = "SampleAnalysisSystem";
 
         SampleAnalysisSystem adaptable;
@@ -25,6 +27,10 @@ namespace pattLab
         public void getMeasurement()
         {
             adaptable.getResultsOfAnalysis();
+        }
+        public void accept(Visitor v)
+        {
+            
         }
     }
 }
