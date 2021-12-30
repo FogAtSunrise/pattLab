@@ -1,4 +1,5 @@
-﻿using System;
+﻿using pattLab.IndirectionPatt;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace pattLab.Iterator
 {
-    class IteratorDevice: Iterator<MeasuringDevice> 
+    class IteratorDevice: Iterator<Indirection> 
     {
-        private List<MeasuringDevice> list;
+        private List<Indirection> list;
         private int current;
 
-        public IteratorDevice(List<MeasuringDevice> list)
+        public IteratorDevice(List<Indirection> list)
         {
             this.list = list;
             current = 0;
@@ -25,7 +26,7 @@ namespace pattLab.Iterator
 
         public bool hasNext() { return current < list.Count; }
 
-        public MeasuringDevice getCurrent() {
+        public Indirection getCurrent() {
             Console.WriteLine("iteratir = "+ current);
                 return list[current]; }
     }

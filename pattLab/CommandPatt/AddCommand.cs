@@ -21,7 +21,7 @@ namespace pattLab.CommandPatt
         public void execute()
         {
             Console.WriteLine("AddCommand для системы №" + receiver.num);
-            receiver.addDevice(param);
+            //receiver.addDevice(param);
         }
     }
 }

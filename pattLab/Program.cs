@@ -3,6 +3,7 @@ using pattLab.CommandPatt;
 using pattLab.Composite;
 using pattLab.Decorator;
 using pattLab.FactoryMethod;
+using pattLab.IndirectionPatt;
 using pattLab.Iterator;
 using pattLab.Memento;
 using pattLab.ObserverPat;
@@ -17,7 +18,7 @@ using System.Windows.Forms;
 namespace pattLab
 {
     class Program
-    {
+    {/*
         //делегирование
        public void test1()
         {
@@ -370,7 +371,7 @@ namespace pattLab
 
             
         }
-
+        */
         public void test15()
         {
             //создаю список измерительных устройств
@@ -402,6 +403,28 @@ namespace pattLab
             }
         }
 
+        public void test16()
+        {
+            //создаю систему анализа
+            WorkingAnalysisSystem firstSystem = new WorkingAnalysisSystem(564);
+
+            //создаю приборы
+            Indirection dev1 = new Indirection(new Thermometer());
+            Indirection dev2 = new Indirection(new Barometer());
+            Indirection dev3 = new Indirection(new Dosimeter());
+
+
+            //добавляю в  систему приборы
+            firstSystem.addDevice(dev1);
+            firstSystem.addDevice(dev2);
+            firstSystem.addDevice(dev3);
+            
+            //запрашиваю у систем показания измерений
+            Console.WriteLine("\nОпрос приборов: ");
+
+            firstSystem.getAllMeasurements();
+ 
+        }
         static void Main(string[] args)
         {
            
@@ -420,9 +443,10 @@ namespace pattLab
              test.test11();
              test.test12();
             test.test13();
-             test.test14();*/
+             test.test14();
+            test.test15();*/
 
-            test.test15();
+            test.test16();
         }
     }
 }
