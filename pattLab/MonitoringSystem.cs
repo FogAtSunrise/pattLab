@@ -1,4 +1,5 @@
-﻿using pattLab.Composite;
+﻿using pattLab.CommandPatt;
+using pattLab.Composite;
 using pattLab.ObserverPat;
 using pattLab.StatePat;
 using System;
@@ -11,6 +12,20 @@ namespace pattLab
 {
     class MonitoringSystem : Subject
     {
+        Command command;
+
+        //получаю от клиента объект конкретной команды
+        public void setCommand(Command  com)
+        {
+            command = com;
+        }
+
+        //выполняю команду
+        public void executeCommand()
+        {
+            command.execute();
+        }
+       //--------------------------------------------------------------------------------------------
         private State curState;
 
         //изменить статус системы
@@ -30,7 +45,7 @@ namespace pattLab
         private List<AnalysisSystem> listAnalysisSystem;
         private static string name="name";
         private static MonitoringSystem instance = null;
-        private MonitoringSystem() { Console.WriteLine("Создана центральная система мониторинга"); }
+        public MonitoringSystem() { Console.WriteLine("Создана центральная система мониторинга"); }
         private MonitoringSystem(string n) { 
             name = n;
             Console.WriteLine("Создана центральная система мониторинга \""+name+ "\""); 

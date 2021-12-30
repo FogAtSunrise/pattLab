@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace pattLab
+namespace pattLab.CommandPatt
 {
-    interface AnalysisSystem
+    interface Command
     {
-        List<string> getAllMeasurements();
-       
+        void execute();
     }
 }

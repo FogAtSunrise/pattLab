@@ -1,4 +1,5 @@
 ﻿using pattLab.AbstractFactory;
+using pattLab.CommandPatt;
 using pattLab.Composite;
 using pattLab.Decorator;
 using pattLab.FactoryMethod;
@@ -325,12 +326,56 @@ namespace pattLab
             }
         }
 
+        public void test14()
+        {
+            //создаю систему мониторинга
+            MonitoringSystem invoker = new MonitoringSystem();
+            
+            //создаю две системы анализа
+            //система №1 с термометром и барометром
+            WorkingAnalysisSystem firstSystem = new WorkingAnalysisSystem(1, 
+                                                                          new List<MeasuringDevice> 
+                                                                          {
+                                                                                new Thermometer(),
+                                                                                new Barometer()
+                                                                          });
+            //система №2 с дозиметром
+            WorkingAnalysisSystem secondSystem = new WorkingAnalysisSystem(2,
+                                                                          new List<MeasuringDevice>
+                                                                          {
+                                                                                new Dosimeter()
+                                                                          });
+
+            //создам список команд 
+            List<Command> com1 = new List<Command>
+            {
+                 new GetCommand(firstSystem), //опрешиваю первую систему до добавления дозиметра
+             new GetCommand(secondSystem), //опрешиваю вторую до добавленря барометра
+            new AddCommand(firstSystem, new Dosimeter()), //добавление дозиметра в первую систему
+             new AddCommand(secondSystem, new Barometer()), //добавление барометра во вторую систему
+             new GetCommand(firstSystem), //опрешиваю первую систему
+             new GetCommand(secondSystem) //опрешиваю вторую
+            };
+
+            //запускаю программы
+
+            Console.WriteLine("ВЫПОЛНЕНИЕ КОМАНД: ");
+            foreach (Command com in com1)
+            {
+                Console.WriteLine("___________________________ ");
+                invoker.setCommand(com);
+                invoker.executeCommand();
+            }
+
+            
+        }
+
         static void Main(string[] args)
         {
            
            
             Program test = new Program();
-             test.test1();
+           /*  test.test1();
              test.test2();
              test.test3();
              test.test4();
@@ -342,9 +387,9 @@ namespace pattLab
             test.test10();
             test.test11();
             test.test12();
-            
+           test.test13();*/
 
-            test.test13();
+            test.test14();
         }
     }
 }

@@ -60,6 +60,9 @@
     <Compile Include="AbstractFactory\WaterSampleAnalysis.cs" />
     <Compile Include="Adapter\Adapter.cs" />
     <Compile Include="AnalysisSystem\AnalysisSystem.cs" />
+    <Compile Include="CommandPatt\AddCommand.cs" />
+    <Compile Include="CommandPatt\Command.cs" />
+    <Compile Include="CommandPatt\GetCommand.cs" />
     <Compile Include="FactoryMethod\AirObject.cs" />
     <Compile Include="FactoryMethod\AirSampleAnalysis.cs" />
     <Compile Include="FactoryMethod\Object.cs" />

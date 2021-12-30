@@ -13,9 +13,20 @@ namespace pattLab
 using typeDevice = MeasuringDevice;
     class WorkingAnalysisSystem : AnalysisSystem, IteratorCollection<typeDevice>
     {
+
+        public int num=0;
+
         
 
-	private List<typeDevice> listDevices = new List<typeDevice>();
+        public WorkingAnalysisSystem(int num, List<typeDevice> list)
+        {
+            listDevices.Clear();
+            this.num = num;
+            listDevices = list;
+        }
+
+
+        private List<typeDevice> listDevices = new List<typeDevice>();
 
         public Iterator<typeDevice> createIterator() {
             return new IteratorDevice(listDevices);
@@ -31,6 +42,7 @@ using typeDevice = MeasuringDevice;
         }
 
         public void addDevice(typeDevice newDevice) {
+            Console.WriteLine("Добавлено новое устройство в систему №"+num);
             listDevices.Add(newDevice);
         }
 
