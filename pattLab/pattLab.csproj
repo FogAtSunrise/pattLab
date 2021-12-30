@@ -68,6 +68,7 @@
     <Compile Include="FactoryMethod\Object.cs" />
     <Compile Include="FactoryMethod\WaterObject.cs" />
     <Compile Include="FactoryMethod\WaterSampleAnalysis.cs" />
+    <Compile Include="IndirectionPatt\Indirection.cs" />
     <Compile Include="MeasuringDevice\Barometer.cs" />
     <Compile Include="Composite and prototype\CertainUser.cs" />
     <Compile Include="Composite and prototype\CompositeUser.cs" />
