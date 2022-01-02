@@ -1,4 +1,5 @@
-﻿using pattLab.Iterator;
+﻿using pattLab.Flyweight;
+using pattLab.Iterator;
 
 using System;
 using System.Collections.Generic;
@@ -8,11 +9,23 @@ using System.Threading.Tasks;
 
 namespace pattLab
 {
-    
+   
    
 using typeDevice = MeasuringDevice;
     class WorkingAnalysisSystem : AnalysisSystem, IteratorCollection<typeDevice>
-    {
+    { 
+        FlyweightData data;
+
+        public WorkingAnalysisSystem(int num, string c, string t, List<typeDevice> list)
+        {
+            data = FlyweightFactory.createFlyweight(c, t);
+            listDevices.Clear();
+            this.num = num;
+            listDevices = list;
+            Console.WriteLine("Создана система № "+num);
+            data.printData();
+        }
+
 
         public int num=0;
 

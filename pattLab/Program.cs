@@ -425,6 +425,59 @@ namespace pattLab
 
         }
 
+        public void test17()
+        {
+
+            //создаю системы анализа
+            //система №444
+            WorkingAnalysisSystem firstSystem1 = new WorkingAnalysisSystem(444,
+                                                                           "график 1",
+                                                                           "AIR",
+                                                                          new List<MeasuringDevice>
+                                                                          {
+                                                                                new Thermometer(),
+                                                                                new Barometer()
+                                                                          });
+            //система №777
+            WorkingAnalysisSystem firstSystem2 = new WorkingAnalysisSystem(777,
+                                                                           "график 2",
+                                                                           "WATHER",
+                                                                          new List<MeasuringDevice>
+                                                                          {
+                                                                                new Thermometer(),
+                                                                                new Barometer()
+                                                                          });
+            //система №22, данные этой системы уже существуют
+            WorkingAnalysisSystem firstSystem3 = new WorkingAnalysisSystem(22,
+                                                                           "график 1",
+                                                                           "AIR",
+                                                                          new List<MeasuringDevice>
+                                                                          {
+                                                                                new Thermometer(),
+                                                                                new Barometer()
+                                                                          });
+
+            //система №999
+            WorkingAnalysisSystem firstSystem4 = new WorkingAnalysisSystem(999,
+                                                                           "график 2",
+                                                                           "AIR",
+                                                                          new List<MeasuringDevice>
+                                                                          {
+                                                                                new Thermometer(),
+                                                                                new Barometer()
+                                                                          });
+            //система №888, уже существуют данные
+            WorkingAnalysisSystem firstSystem5 = new WorkingAnalysisSystem(888,
+                                                                           "график 2",
+                                                                           "WATHER",
+                                                                          new List<MeasuringDevice>
+                                                                          {
+                                                                                new Thermometer(),
+                                                                                new Barometer()
+                                                                          });
+
+        }
+
         static void Main(string[] args)
         {
            
@@ -446,7 +499,7 @@ namespace pattLab
              test.test14();
             test.test15();*/
 
-            test.test16();
+            test.test17();
         }
     }
 }
