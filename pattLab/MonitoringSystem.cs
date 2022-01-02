@@ -42,7 +42,7 @@ namespace pattLab
             observer.update(curState);
         }
 
-        private List<AnalysisSystem> listAnalysisSystem;
+        private List<AnalysisSystem> listAnalysisSystem=new List<AnalysisSystem>();
         private static string name="name";
         private static MonitoringSystem instance = null;
         public MonitoringSystem() { Console.WriteLine("Создана центральная система мониторинга"); }
@@ -63,8 +63,12 @@ namespace pattLab
             Console.WriteLine("Система мониторинга \"" + name + "\"");
         }
         CompositeUser users;
-        public void addAnalysisSystem(AnalysisSystem newAnalysisSystem) { }
-        public void getAllAnalysisResults() { }
+        public void addAnalysisSystem(AnalysisSystem newAnalysisSystem) { listAnalysisSystem.Add(newAnalysisSystem); }
+        public void getAllAnalysisResults() {
+
+            foreach (AnalysisSystem sys in listAnalysisSystem)
+                sys.getAllMeasurements();
+        }
 
     }
 }

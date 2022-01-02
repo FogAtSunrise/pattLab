@@ -45,6 +45,7 @@ using typeDevice = MeasuringDevice;
             return new IteratorDevice(listDevices);
         }
         public List<string> getAllMeasurements() {
+            Console.WriteLine("\nОпрос приборов системы №" + num);
             List<string> list = new List<string>();
             foreach (typeDevice it in listDevices)
                 {

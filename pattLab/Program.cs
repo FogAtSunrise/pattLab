@@ -478,6 +478,32 @@ namespace pattLab
 
         }
 
+        public void test18()
+        {
+
+            //Создаю систему мониторинга
+            MonitoringSystem mon = MonitoringSystem.getInstance("Галлифрей");
+
+            //добавляю системы анализа в систему мониторинга
+            mon.addAnalysisSystem(new WorkingAnalysisSystem(444, new List<MeasuringDevice>
+                                           {
+                                            new Thermometer(),
+                                            new Barometer()
+                                            }));
+
+            mon.addAnalysisSystem(new WorkingAnalysisSystem(555, new List<MeasuringDevice>
+                                           {
+                                            new Thermometer(),
+                                             new Dosimeter()
+                                            }));
+
+            mon.addAnalysisSystem(new WorkingAnalysisSystem(666, new List<MeasuringDevice>
+                                           { new Dosimeter()
+                                            }));
+            //получаю  показатели всех систем
+            mon.getAllAnalysisResults();
+        }
+
         static void Main(string[] args)
         {
            
@@ -499,7 +525,7 @@ namespace pattLab
              test.test14();
             test.test15();*/
 
-            test.test17();
+            test.test18();
         }
     }
 }
