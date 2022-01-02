@@ -60,6 +60,12 @@
     <Compile Include="AbstractFactory\WaterSampleAnalysis.cs" />
     <Compile Include="Adapter\Adapter.cs" />
     <Compile Include="AnalysisSystem\AnalysisSystem.cs" />
+    <Compile Include="BridgePatt\Analyzer.cs" />
+    <Compile Include="BridgePatt\DataProcessor.cs" />
+    <Compile Include="BridgePatt\DeviceHandler.cs" />
+    <Compile Include="BridgePatt\GasAnalyzer.cs" />
+    <Compile Include="BridgePatt\ReportCreator.cs" />
+    <Compile Include="BridgePatt\WaterAnalyzer.cs" />
     <Compile Include="CommandPatt\AddCommand.cs" />
     <Compile Include="CommandPatt\Command.cs" />
     <Compile Include="CommandPatt\GetCommand.cs" />

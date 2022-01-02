@@ -1,4 +1,5 @@
 ﻿using pattLab.AbstractFactory;
+using pattLab.BridgePatt;
 using pattLab.CommandPatt;
 using pattLab.Composite;
 using pattLab.Decorator;
@@ -402,6 +403,28 @@ namespace pattLab
             }
         }
 
+        public void test16()
+        {
+            //создаю анализатор газа с результатом в виде отчета
+            DataProcessor repGas = new ReportCreator(new GasAnalyzer());
+
+            //создаю анализатор газа с результатом в виде анализа показателей
+            DataProcessor anGas = new Analyzer(new GasAnalyzer());
+
+            //создаю анализатор аоды с результатом в виде отчета
+            DataProcessor repWater = new ReportCreator(new WaterAnalyzer());
+
+            //вывожу результаты
+            repGas.getReport();
+            Console.WriteLine("");
+            anGas.getAnalysis();
+            Console.WriteLine("");
+            repWater.getReport();
+            Console.WriteLine("");
+
+
+        }
+
         static void Main(string[] args)
         {
            
@@ -420,9 +443,10 @@ namespace pattLab
              test.test11();
              test.test12();
             test.test13();
-             test.test14();*/
+             test.test14();
+            test.test15();*/
 
-            test.test15();
+            test.test16();
         }
     }
 }
