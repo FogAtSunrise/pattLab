@@ -484,22 +484,22 @@ namespace pattLab
             //Создаю систему мониторинга
             MonitoringSystem mon = MonitoringSystem.getInstance("Галлифрей");
 
-            //добавляю системы анализа в систему мониторинга
-            mon.addAnalysisSystem(new WorkingAnalysisSystem(444, new List<MeasuringDevice>
+            //добавляю системы анализа в систему мониторинга (указвывю номер системы и приборы измерительные)
+            mon.addAnalysisSystem(444, new List<MeasuringDevice>
                                            {
                                             new Thermometer(),
                                             new Barometer()
-                                            }));
+                                            });
 
-            mon.addAnalysisSystem(new WorkingAnalysisSystem(555, new List<MeasuringDevice>
+            mon.addAnalysisSystem(555, new List<MeasuringDevice>
                                            {
                                             new Thermometer(),
                                              new Dosimeter()
-                                            }));
+                                            });
 
-            mon.addAnalysisSystem(new WorkingAnalysisSystem(666, new List<MeasuringDevice>
+            mon.addAnalysisSystem(666, new List<MeasuringDevice>
                                            { new Dosimeter()
-                                            }));
+                                            });
             //получаю  показатели всех систем
             mon.getAllAnalysisResults();
         }

@@ -63,7 +63,7 @@ namespace pattLab
             Console.WriteLine("Система мониторинга \"" + name + "\"");
         }
         CompositeUser users;
-        public void addAnalysisSystem(AnalysisSystem newAnalysisSystem) { listAnalysisSystem.Add(newAnalysisSystem); }
+        public void addAnalysisSystem(int num, List<MeasuringDevice> list) { listAnalysisSystem.Add(new WorkingAnalysisSystem(num, list)); }
         public void getAllAnalysisResults() {
 
             foreach (AnalysisSystem sys in listAnalysisSystem)
