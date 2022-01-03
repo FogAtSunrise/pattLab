@@ -11,6 +11,7 @@ namespace pattLab
     {
         void getMeasurement();
         string getName();
+        void getDeviations();
         void accept(Visitor v);
     }
 }

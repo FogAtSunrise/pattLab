@@ -503,6 +503,23 @@ namespace pattLab
             //получаю  показатели всех систем
             mon.getAllAnalysisResults();
         }
+        public void test19()
+        {
+            //создаю приборы
+            List<MeasuringDevice> list = new List<MeasuringDevice>() { new Thermometer(),
+                                            new Barometer(), new Dosimeter()};
+            //запрашиваю разность измерений
+            for (int i=0; i<10; i++)
+            {
+                Console.WriteLine(i+" ч.");
+                if (i % 3 == 0)
+                {     
+                    list[0].getDeviations();
+                    list[1].getDeviations();
+                    list[2].getDeviations();
+                }
+            }
+        }
 
         static void Main(string[] args)
         {
@@ -525,7 +542,7 @@ namespace pattLab
              test.test14();
             test.test15();*/
 
-            test.test18();
+            test.test19();
         }
     }
 }

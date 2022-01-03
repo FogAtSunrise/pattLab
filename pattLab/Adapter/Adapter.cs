@@ -10,7 +10,8 @@ namespace pattLab
     //адаптер для подведения системы анализа пробы под интерфейс измерительного прибора
     class Adapter : MeasuringDevice
     {
-
+        public void getDeviations()
+        { }
         private string name = "SampleAnalysisSystem";
 
         SampleAnalysisSystem adaptable;
