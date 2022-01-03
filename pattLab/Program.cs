@@ -526,7 +526,7 @@ namespace pattLab
            
            
             Program test = new Program();
-            /*  test.test1();
+              test.test1();
               test.test2();
               test.test3();
               test.test4();
@@ -540,8 +540,10 @@ namespace pattLab
              test.test12();
             test.test13();
              test.test14();
-            test.test15();*/
-
+            test.test15();
+            test.test16();
+            test.test17();
+            test.test18();
             test.test19();
         }
     }
