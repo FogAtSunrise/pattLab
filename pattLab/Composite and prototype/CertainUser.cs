@@ -1,14 +1,29 @@
-﻿using System;
+﻿using pattLab.BuilderPat;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using pattLab.MeasuringDeviceFile;
 namespace pattLab.Composite
 {
     //конкретный пользователь
     class CertainUser : User
     {
+    
+            public AnalysisSystem constructSystemAir()
+        {
+            b.setNumber(456);
+            b.addBaseDevices();
+            return b.getResult();
+        }
+
+        public CertainUser(Builder build)
+        {
+            b = build;
+        }
+
+        private Builder b;
         private string login;
         private string password;
         private int privilegeLevel;

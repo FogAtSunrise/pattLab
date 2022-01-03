@@ -6,17 +6,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using pattLab.MeasuringDeviceFile;
 
 namespace pattLab
 {
    
    
-using typeDevice = MeasuringDevice;
-    class WorkingAnalysisSystem : AnalysisSystem, IteratorCollection<typeDevice>
+    class WorkingAnalysisSystem : AnalysisSystem, IteratorCollection<MeasuringDevice>
     { 
         FlyweightData data;
 
-        public WorkingAnalysisSystem(int num, string c, string t, List<typeDevice> list)
+        public WorkingAnalysisSystem(int num, string c, string t, List<MeasuringDevice> list)
         {
             data = FlyweightFactory.createFlyweight(c, t);
             listDevices.Clear();
@@ -29,9 +29,10 @@ using typeDevice = MeasuringDevice;
 
         public int num=0;
 
-        
+        public void setNum(int n)
+        { num = n; }
 
-        public WorkingAnalysisSystem(int num, List<typeDevice> list)
+       public WorkingAnalysisSystem(int num, List<MeasuringDevice> list)
         {
             listDevices.Clear();
             this.num = num;
@@ -39,15 +40,15 @@ using typeDevice = MeasuringDevice;
         }
 
 
-        private List<typeDevice> listDevices = new List<typeDevice>();
+        private List<MeasuringDevice> listDevices = new List<MeasuringDevice>();
 
-        public Iterator<typeDevice> createIterator() {
+        public Iterator<MeasuringDevice> createIterator() {
             return new IteratorDevice(listDevices);
         }
         public List<string> getAllMeasurements() {
             Console.WriteLine("\nОпрос приборов системы №" + num);
             List<string> list = new List<string>();
-            foreach (typeDevice it in listDevices)
+            foreach (MeasuringDevice it in listDevices)
                 {
                 it.getMeasurement();
                 list.Add(it.getName());
@@ -55,7 +56,7 @@ using typeDevice = MeasuringDevice;
             return list;
         }
 
-        public void addDevice(typeDevice newDevice) {
+        public void addDevice(MeasuringDevice newDevice) {
             Console.WriteLine("Добавлено новое устройство в систему №"+num);
             listDevices.Add(newDevice);
         }

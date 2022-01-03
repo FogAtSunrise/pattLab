@@ -14,6 +14,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using pattLab.MeasuringDeviceFile;
+using pattLab.BuilderPat;
 
 namespace pattLab
 {
@@ -521,12 +523,33 @@ namespace pattLab
             }
         }
 
+        public void test20()
+        {
+            //создаю строителя системы анализа водной среды
+            Builder b = new BuilderAnalysisSystemWater();
+
+            //создаю пользователя с объектом строителя
+            CertainUser user = new CertainUser(b);
+
+            //вызываю у пользователя метод-конструктор системы анализа воздушной среды
+            AnalysisSystem newsys1 = user.constructSystemAir();
+            //опрашиваю систему
+            newsys1.getAllMeasurements();
+            Console.WriteLine("\n___________________________________ ");
+            //теперь через строителя добавлю в систему новый прибор
+            b.addAnotherDevice(new Dosimeter());
+
+            //опрашиваю систему
+            newsys1.getAllMeasurements();
+
+        }
+
         static void Main(string[] args)
         {
            
            
             Program test = new Program();
-              test.test1();
+            /*  test.test1();
               test.test2();
               test.test3();
               test.test4();
@@ -545,6 +568,9 @@ namespace pattLab
             test.test17();
             test.test18();
             test.test19();
+            */
+
+            test.test20();
         }
     }
 }
